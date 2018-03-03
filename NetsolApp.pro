@@ -4,10 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui serialport multimedia charts
-#CONFIG+= staticlib
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += widgets serialport
+requires(qtConfig(combobox))
 
 TARGET = NetsolApp
 TEMPLATE = app

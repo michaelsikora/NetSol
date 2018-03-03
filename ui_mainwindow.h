@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -36,6 +37,8 @@ public:
     QAction *actionConfigure;
     QAction *actionAbout;
     QAction *actionQuit;
+    QAction *actionClear;
+    QAction *actionAboutQt;
     QWidget *centralWidget;
     QLabel *label;
     QSlider *horizontalSlider;
@@ -43,7 +46,7 @@ public:
     QLabel *volumeLabel;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QLabel *m_status;
+    QProgressBar *progressExample;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuWindow;
@@ -55,9 +58,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 400);
-        MainWindow->setMinimumSize(QSize(400, 400));
-        MainWindow->setMaximumSize(QSize(400, 400));
+        MainWindow->resize(500, 600);
+        MainWindow->setMinimumSize(QSize(500, 600));
+        MainWindow->setMaximumSize(QSize(500, 600));
         action_Exit = new QAction(MainWindow);
         action_Exit->setObjectName(QStringLiteral("action_Exit"));
         actionConnection_Settings = new QAction(MainWindow);
@@ -72,39 +75,45 @@ public:
         actionAbout->setObjectName(QStringLiteral("actionAbout"));
         actionQuit = new QAction(MainWindow);
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
+        actionClear = new QAction(MainWindow);
+        actionClear->setObjectName(QStringLiteral("actionClear"));
+        actionAboutQt = new QAction(MainWindow);
+        actionAboutQt->setObjectName(QStringLiteral("actionAboutQt"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 341, 16));
+        label->setGeometry(QRect(10, 10, 471, 16));
+        label->setAlignment(Qt::AlignCenter);
         horizontalSlider = new QSlider(centralWidget);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(90, 40, 160, 22));
+        horizontalSlider->setGeometry(QRect(80, 40, 121, 22));
         horizontalSlider->setMaximum(100);
         horizontalSlider->setSingleStep(1);
         horizontalSlider->setOrientation(Qt::Horizontal);
         horizontalSlider->setTickPosition(QSlider::TicksBothSides);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 40, 47, 13));
+        label_2->setGeometry(QRect(10, 40, 47, 16));
         volumeLabel = new QLabel(centralWidget);
         volumeLabel->setObjectName(QStringLiteral("volumeLabel"));
-        volumeLabel->setGeometry(QRect(290, 40, 47, 13));
+        volumeLabel->setGeometry(QRect(400, 40, 47, 21));
         verticalLayoutWidget = new QWidget(centralWidget);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 100, 371, 241));
+        verticalLayoutWidget->setGeometry(QRect(10, 140, 481, 401));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        m_status = new QLabel(centralWidget);
-        m_status->setObjectName(QStringLiteral("m_status"));
-        m_status->setGeometry(QRect(10, 70, 47, 20));
+        progressExample = new QProgressBar(centralWidget);
+        progressExample->setObjectName(QStringLiteral("progressExample"));
+        progressExample->setGeometry(QRect(230, 40, 151, 23));
+        progressExample->setValue(24);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 21));
+        menuBar->setGeometry(QRect(0, 0, 500, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuWindow = new QMenu(menuBar);
@@ -147,10 +156,11 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAbout->setText(QApplication::translate("MainWindow", "About", nullptr));
         actionQuit->setText(QApplication::translate("MainWindow", "Quit", nullptr));
+        actionClear->setText(QApplication::translate("MainWindow", "Clear", nullptr));
+        actionAboutQt->setText(QApplication::translate("MainWindow", "AboutQt", nullptr));
         label->setText(QApplication::translate("MainWindow", "This is a test application for reading serial data in a Qt App", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "Slide 1", nullptr));
         volumeLabel->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        m_status->setText(QApplication::translate("MainWindow", "Port: ", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menuWindow->setTitle(QApplication::translate("MainWindow", "&Window", nullptr));
         menuAbout->setTitle(QApplication::translate("MainWindow", "&About", nullptr));
