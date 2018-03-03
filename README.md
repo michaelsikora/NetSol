@@ -7,7 +7,17 @@
 	The debug/ folder is included which contains the .exe compiled application for
 	windows. The dependencies were tracked down and copied to the debug/ folder as 
 	well, so the debug/ folder can be copied to other windows machines and the .exe
-	should run the application.
+	should run the application. UPDATE: debug/ is ignored for git because the dll's
+	are too large. To setup standalone .exe on windows the following .dll's were
+	searched for and copied to the debug/ directory:
+	
+	Qt5Guid.dll
+	Qt5Cored.dll
+	Qt5SerialPortd.dll
+	Qt5Widgetsd.dll
+	libgcc_s_dw2-1.dll
+	libstdc++-6.dll
+	libwinpthread-1.dll
 	
 	System used: Qt5.10.1, Qt Creator on Windows 10 with MinGW 32bit compiler
 
