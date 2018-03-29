@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAN>
+    <section title="Driver Display">
+        <message address="0x100" datasize="2">
+            <data label="Seven Seg display 1 value" type="float"/>
+            <data label="Seven Seg display 2 value" type="float"/>
+        </message>
+    </section>
+    <section title="GPS">
+        <message address="0x110" datasize="1">
+            <data label="GPS Message 1" type="char"/>
+        </message>
+        <message address="0x111" datasize="1">
+            <data label="GPS Message 2" type="char"/>
+        </message>
+        <message address="0x120-0x12F" datasize="1">
+            <data label="Accelerometer" type="char"/>
+        </message>
+        <message address="0x130-0x13F" datasize="1">
+            <data label="Gyro" type="char"/>
+        </message>
+    </section>
+    <section title="Array">
+    <message address="0x200" datasize="1">
+        <data label="ARRAY_MESSAGE_RANGE_LOW" type="char"/>
+    </message>
+    <message address="0x2FF" datasize="1">
+        <data label="ARRAY_MESSAGE_RANGE_HI" type="char"/>
+    </message>
+    <message address="0x200" datasize="4">
+        <data label="ARRAY_SIDE_POWER_1" type="uint16_t"/>
+    </message>
+    <message address="0x201" datasize="4">
+        <data label="ARRAY_SIDE_POWER_2" type="uint16_t"/>
+    </message>
+    <message address="0x202" datasize="4">
+        <data label="ARRAY_BATTERY_SIDE_POWER_1" type="uint16_t"/>
+    </message>
+    <message address="0x203" datasize="4">
+        <data label="ARRAY_BATTERY_SIDE_POWER_2" type="uint16_t"/>
+    </message>
+    <message address="0x204" datasize="8">
+        <data label="ARRAY_MPPT_STATUS" type="uint8_t"/>
+    </message>
+    <message address="0x205" datasize="1">
+        <data label="ARRAY_ILLUMINANCE" type="uint16_t"/>
+    </message>
+    <message address="0x206" datasize="8">
+        <data label="ARRAY_TEMPERATURE" type="uint8_t"/>
+    </message>
+
+    </section>
+    <section title="Battery">
+    <message address="0x110" datasize="2">
+        <data label="Seven Seg display 1 value" type="float"/>
+        <data label="Seven Seg display 2 value" type="float"/>
+    </message>
+
+    </section>
+    <section title="Motor 1">
+    <message address="0x110" datasize="2">
+        <data label="Seven Seg display 1 value" type="float"/>
+        <data label="Seven Seg display 2 value" type="float"/>
+    </message>
+
+    </section>
+    <section title="Motor 2">
+    <message address="0x110" datasize="2">
+        <data label="Seven Seg display 1 value" type="float"/>
+        <data label="Seven Seg display 2 value" type="float"/>
+    </message>
+
+    </section>
+    <section title="Driver Controller">
+    <message address="0x110" datasize="2">
+        <data label="Seven Seg display 1 value" type="float"/>
+        <data label="Seven Seg display 2 value" type="float"/>
+    </message>
+
+    </section>
+
+</CAN>

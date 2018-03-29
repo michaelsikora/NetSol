@@ -14,14 +14,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QProgressBar>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -40,18 +37,18 @@ public:
     QAction *actionClear;
     QAction *actionAboutQt;
     QWidget *centralWidget;
-    QLabel *label;
-    QSlider *horizontalSlider;
-    QLabel *label_2;
-    QLabel *volumeLabel;
+    QTabWidget *topTabs;
+    QWidget *ConsoleView;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QProgressBar *progressExample;
+    QWidget *LabelsView;
+    QTabWidget *tabWidget;
+    QWidget *tab_3;
+    QWidget *tab_4;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuWindow;
     QMenu *menuAbout;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -81,35 +78,32 @@ public:
         actionAboutQt->setObjectName(QStringLiteral("actionAboutQt"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 471, 16));
-        label->setAlignment(Qt::AlignCenter);
-        horizontalSlider = new QSlider(centralWidget);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(80, 40, 121, 22));
-        horizontalSlider->setMaximum(100);
-        horizontalSlider->setSingleStep(1);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-        horizontalSlider->setTickPosition(QSlider::TicksBothSides);
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 40, 47, 16));
-        volumeLabel = new QLabel(centralWidget);
-        volumeLabel->setObjectName(QStringLiteral("volumeLabel"));
-        volumeLabel->setGeometry(QRect(400, 40, 47, 21));
-        verticalLayoutWidget = new QWidget(centralWidget);
+        topTabs = new QTabWidget(centralWidget);
+        topTabs->setObjectName(QStringLiteral("topTabs"));
+        topTabs->setGeometry(QRect(0, 0, 501, 551));
+        ConsoleView = new QWidget();
+        ConsoleView->setObjectName(QStringLiteral("ConsoleView"));
+        verticalLayoutWidget = new QWidget(ConsoleView);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 140, 481, 401));
+        verticalLayoutWidget->setGeometry(QRect(-10, 10, 511, 511));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        progressExample = new QProgressBar(centralWidget);
-        progressExample->setObjectName(QStringLiteral("progressExample"));
-        progressExample->setGeometry(QRect(230, 40, 151, 23));
-        progressExample->setValue(24);
+        topTabs->addTab(ConsoleView, QString());
+        LabelsView = new QWidget();
+        LabelsView->setObjectName(QStringLiteral("LabelsView"));
+        tabWidget = new QTabWidget(LabelsView);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setGeometry(QRect(0, 0, 501, 531));
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        tabWidget->addTab(tab_4, QString());
+        topTabs->addTab(LabelsView, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -121,9 +115,6 @@ public:
         menuAbout = new QMenu(menuBar);
         menuAbout->setObjectName(QStringLiteral("menuAbout"));
         MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
@@ -133,6 +124,9 @@ public:
         menuBar->addAction(menuAbout->menuAction());
 
         retranslateUi(MainWindow);
+
+        topTabs->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -158,9 +152,10 @@ public:
         actionQuit->setText(QApplication::translate("MainWindow", "Quit", nullptr));
         actionClear->setText(QApplication::translate("MainWindow", "Clear", nullptr));
         actionAboutQt->setText(QApplication::translate("MainWindow", "AboutQt", nullptr));
-        label->setText(QApplication::translate("MainWindow", "This is a test application for reading serial data in a Qt App", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Slide 1", nullptr));
-        volumeLabel->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        topTabs->setTabText(topTabs->indexOf(ConsoleView), QApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Tab 2", nullptr));
+        topTabs->setTabText(topTabs->indexOf(LabelsView), QApplication::translate("MainWindow", "Tab 2", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "&File", nullptr));
         menuWindow->setTitle(QApplication::translate("MainWindow", "&Window", nullptr));
         menuAbout->setTitle(QApplication::translate("MainWindow", "&About", nullptr));

@@ -32,7 +32,8 @@ HEADERS += \
     settingsdialog.h \
     console.h \
     mainwindow.h \
-    settingsdialog.h
+    settingsdialog.h \
+    xmlsyntaxhighlighter.h
 
 FORMS += \
         mainwindow.ui \
@@ -58,3 +59,7 @@ RESOURCES += \
 
 target.path = A:\QtApps/BasicResearchApplication/bin/
 INSTALLS += target
+
+DISTFILES += \
+    stylesheet.qss \
+    CANconfig.xml

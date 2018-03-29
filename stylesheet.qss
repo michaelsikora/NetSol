@@ -1,0 +1,22 @@
+QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #CD96CD;
+    width: 10px;
+    margin: 0.5px;
+}
+
+QLabel {
+    font: 12px;
+    min-width: 10em;
+    margin: 5px;
+    font-family: lucida console;
+}
+
+QGroupBox {
+    font-family: helvetica;
+}
