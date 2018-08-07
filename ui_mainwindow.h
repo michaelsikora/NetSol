@@ -85,7 +85,7 @@ public:
         ConsoleView->setObjectName(QStringLiteral("ConsoleView"));
         verticalLayoutWidget = new QWidget(ConsoleView);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(-10, 10, 511, 511));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 471, 501));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
